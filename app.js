@@ -9,13 +9,8 @@ server.use((req, res, next) => {
 	next();
 });
 
-server.use(restify.acceptParser(server.acceptable));
-server.use(restify.queryParser());
-server.use(restify.bodyParser());
 server.use(logger('dev'));
 
 require('./routes/index')(server);
 
-server.listen(1337, () => {
-	console.log('%s listening at %s', server.name, server.url);
-});
+server.listen(1337);
